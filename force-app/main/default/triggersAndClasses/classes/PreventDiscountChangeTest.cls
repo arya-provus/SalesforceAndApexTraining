@@ -1,5 +1,5 @@
 @isTest
-public class TestPreventDiscountChange {
+public class PreventDiscountChangeTest {
 @isTest
 static void testDiscountChangeNotAllowed() {
     Quote quote = TestDataClass.createQuote();

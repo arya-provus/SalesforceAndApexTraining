@@ -1,5 +1,5 @@
 @isTest
-public class TestDiscountTrigger {
+public class DiscountTriggerTest {
 
 @isTest
     static void testDiscountOnInsert() {

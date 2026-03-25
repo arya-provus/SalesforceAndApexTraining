@@ -1,5 +1,5 @@
 @isTest
-public class TestInvalidDiscountTrigger {
+public class InvalidDiscountTriggerTest{
 @isTest
 static void testDiscountgraterthan100() {
     Quote quote = TestDataClass.createQuote();
