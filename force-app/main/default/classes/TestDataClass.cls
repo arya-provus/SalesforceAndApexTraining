@@ -4,7 +4,7 @@ public class TestDataClass {
 
         Product_Category__c category = new Product_Category__c(
             Name = 'Test Category',
-            Max_Discount__c = 20
+            Max_Discount__c = 20.00
         );
         insert category;
 
