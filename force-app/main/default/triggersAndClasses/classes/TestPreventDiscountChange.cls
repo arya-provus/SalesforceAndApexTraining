@@ -2,9 +2,8 @@
 public class TestPreventDiscountChange {
 @isTest
 static void testDiscountChangeNotAllowed() {
-    // Step 1: Create a Quote and force it to a "Locked" status
     Quote quote = TestDataClass.createQuote();
-    quote.Status = 'Submitted'; // Change this to whatever status blocks updates in your trigger
+    quote.Status = 'Submitted'; 
     update quote;
 
     QuoteLineItem qli = new QuoteLineItem(
@@ -16,7 +15,7 @@ static void testDiscountChangeNotAllowed() {
     );
     insert qli;
 
-    // Step 2: Try to change discount
+
     qli.Discount = 20;
 
     Test.startTest();
@@ -30,16 +29,12 @@ static void testDiscountChangeNotAllowed() {
     Test.stopTest();
 }
 
-    // ---------- Test: Discount change should be allowed when Quote is Draft ----------
     @isTest
     static void testDiscountChangeAllowed() {
 
-        // Create test data using factory
         Product2 product = TestDataClass.createProduct();
         PricebookEntry pbe = TestDataClass.createPricebookEntry(product.Id);
-        Quote quote = TestDataClass.createQuote();   // Status = Draft
-
-        // Insert QuoteLineItem
+        Quote quote = TestDataClass.createQuote();   
         QuoteLineItem qli = new QuoteLineItem(
             QuoteId = quote.Id,
             PricebookEntryId = pbe.Id,
@@ -51,13 +46,11 @@ static void testDiscountChangeNotAllowed() {
 
         Test.startTest();
 
-        // Change discount (should work)
         qli.Discount = 20;
         update qli;
 
         Test.stopTest();
 
-        // Verify discount updated
         QuoteLineItem updatedQLI = [
             SELECT Discount
             FROM QuoteLineItem
