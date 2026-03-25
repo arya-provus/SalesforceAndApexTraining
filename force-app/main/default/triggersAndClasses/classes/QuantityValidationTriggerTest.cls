@@ -1,5 +1,5 @@
 @isTest
-public class TestQuantityValidationTrigger {
+public class QuantityValidationTriggerTest {
 
    @isTest
 static void testNegativeQuantity() {
