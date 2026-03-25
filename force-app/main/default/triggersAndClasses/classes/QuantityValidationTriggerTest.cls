@@ -1,14 +1,12 @@
 @isTest
-public class TestQuantityValidationTrigger {
+public class QuantityValidationTriggerTest {
 
    @isTest
 static void testNegativeQuantity() {
-    // Create test data
     Product2 product = TestDataClass.createProduct();
     PricebookEntry pbe = TestDataClass.createPricebookEntry(product.Id);
     Quote quote = TestDataClass.createQuote();
 
-    // Manually set negative quantity
     QuoteLineItem qli = new QuoteLineItem(
         QuoteId = quote.Id,
         PricebookEntryId = pbe.Id,
@@ -30,10 +28,8 @@ static void testNegativeQuantity() {
 }
     @isTest
     static void testValidQuantity() {
-        // Use TestDataClass helper for valid quantity
         QuoteLineItem qli = TestDataClass.createCompleteTestData(10);
 
-        // Update quantity to a valid number just to be explicit
         qli.Quantity = 2;
 
         Test.startTest();
